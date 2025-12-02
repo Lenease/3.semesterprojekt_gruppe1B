@@ -4,16 +4,17 @@ from psycopg2 import Error
 try:
     connection = psycopg2.connect(
         user="postgres",
-        password="2300",
-        host="127.0.0.1",
+        password="jonas2011",
+        host="10.136.139.236",
         port="5432",
         database="postgres")
 
     cursor = connection.cursor()
     
     # SQL query to create a new table
-    create_table_query = '''CREATE TABLE medicin
+    create_table_query = '''CREATE TABLE beboer
           (ID SERIAL PRIMARY KEY,
+          CPR_NR         TEXT    NOT NULL,
           BEBOER         TEXT    NOT NULL,
           PILLE          TEXT    NOT NULL,
           DOSIS          TEXT,
