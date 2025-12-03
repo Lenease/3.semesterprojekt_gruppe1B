@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 
 
-
 app = Flask(__name__)
 
 #statiske sider
@@ -19,7 +18,7 @@ def skema():
     conn = get_connection()
     cur = conn.cursor()
 
-    cur.execute("SELECT .......")
+    cur.execute("SELECT * FROM beboer;")
     rows = cur.fetchall()
 
     cur.close()
