@@ -21,7 +21,7 @@ def beboer():
     return render_template("beboer.html")
 
 #dynamisk side, forbindelse til databasen i postgreSQL
-@app.route("/skema")
+@app.route("/medicinplan")
 def skema():
     #conn = get_connection()
     #cur = conn.cursor()
@@ -32,7 +32,7 @@ def skema():
     #cur.close()
     #conn.close()
 
-    return render_template("skema.html")
+    return render_template("medicinplan.html")
 
 
 @app.route("/images/<path:filename>")
