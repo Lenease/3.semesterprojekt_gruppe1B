@@ -5,7 +5,7 @@ try:
     connection = psycopg2.connect(
         user="postgres",
         password="jonas2011",
-        host="10.136.139.242", #den bliver ændret hvergang Yuhang tilgår den
+        host="100.119.141.120", #den bliver ændret hvergang Yuhang tilgår den
         port="5432",
         database="postgres")
 
@@ -22,12 +22,12 @@ try:
     # Execute a command: this creates a new table
     cursor.execute(create_table_query)
     connection.commit()
-    print("Table created successfully in PostgreSQL ")
+    print("Table blev oprettet i PostgreSQL ")
 
 except (Exception, Error) as error:
-    print("Error while connecting to PostgreSQL", error)
+    print("Fejl under oprettelse af forbindelse til PostgreSQL", error)
 finally:
     if connection:
         cursor.close()
         connection.close()
-        print("PostgreSQL connection is closed")
+        print("PostgreSQL forbindelse er lukket")

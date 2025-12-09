@@ -5,6 +5,10 @@ app = Flask(__name__, template_folder="templates")
 
 #statiske sider
 @app.route("/")
+def start():
+    return render_template("login.html")
+
+@app.route("/index")
 def index():
     return render_template("index.html")
 
@@ -30,10 +34,13 @@ def skema():
 
     return render_template("skema.html")
 
+
 @app.route("/images/<path:filename>")
 def images(filename): 
     return send_from_directory("images", filename)
 
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
+
