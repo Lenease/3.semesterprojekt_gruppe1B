@@ -41,144 +41,36 @@
 </nav>
 
 
-<div class="card-group">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Lone</h5>
-      <p class="card-text">Lone skal have D-vitamin hverdag, omkring formiddag tid</p>
-      <p class="card-text"><small class="text-body-secondary">D-vitamin</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-4">Beboernes medicin</h2>
+
+    <div class="row">
+        {% for navn, tider in beboere.items() %}
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">{{ navn }}</h4>
+
+                    {% for tid, mediciner in tider.items() %}
+                        {% if mediciner %}
+                        <h6 class="mt-3">{{ tid }}</h6>
+                        <ul>
+                            {% for m in mediciner %}
+                                <li><strong>{{ m.medicin }}</strong> ({{ m.dosis }})</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
     </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Henrik</h5>
-      <p class="card-text">Henrik skal have D-vitamin hverdag, omkring formiddag tid</p>
-      <p class="card-text"><small class="text-body-secondary">D-vitamin</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Lars</h5>
-      <p class="card-text">Lars skal nogengange have Paracetamol, omkring eftermiddags tid, grundet hans hofte. 3 gange dagligt</p>
-      <p class="card-text"><small class="text-body-secondary">Paracetamol</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-</div><div class="card-group">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Inge</h5>
-      <p class="card-text">Inge skal have Metoprolol 1-2 gange dagligt</p>
-      <p class="card-text"><small class="text-body-secondary">Metoprolol</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Yvonne</h5>
-      <p class="card-text">Yvonne skal have Metformin 2-3 gange dagligt, med måltider</p>
-      <p class="card-text"><small class="text-body-secondary">Metformin</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Rasmus</h5>
-      <p class="card-text">Rasmus skal have Donepezil én gang dagligt, ofte om aftenen</p>
-      <p class="card-text"><small class="text-body-secondary">Donepezil</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-</div><div class="card-group">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Ursula</h5>
-      <p class="card-text">Ursula skal have Donepezil én gang dagligt, ofte om aftenen</p>
-      <p class="card-text"><small class="text-body-secondary">Donepezil</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Erik</h5>
-      <p class="card-text">Erik skal have Metformin 2-3 gange dagligt, med måltider</p>
-      <p class="card-text"><small class="text-body-secondary">Metformin</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Anders</h5>
-      <p class="card-text">Anders skal have Simvastatin én gang dagligt, ofte om aftenen</p>
-      <p class="card-text"><small class="text-body-secondary">Simvastatin</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-</div><div class="card-group">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Ole</h5>
-      <p class="card-text">Ole skal have Metoprolol 1-2 gange dagligt</p>
-      <p class="card-text"><small class="text-body-secondary">Metoprolol</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Peter</h5>
-      <p class="card-text">Peter skal have Omeprazol én gang dagligt</p>
-      <p class="card-text"><small class="text-body-secondary">Omeprazol</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Lise</h5>
-      <p class="card-text">Lise skal have Fiskeolie hverdag, med måltider</p>
-      <p class="card-text"><small class="text-body-secondary">Fiskeolie</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-</div><div class="card-group">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Anne</h5>
-      <p class="card-text">Anne skal have Fiskeolie 2 gange, Kalk 1 gang og D-vitamin 1 gang dagligt, med måltider</p>
-      <p class="card-text"><small class="text-body-secondary">Fiskeolie, D-vitamin, Kalk</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Suzanne</h5>
-      <p class="card-text">Suzanne skal have Donepezil én gang dagligt, ofte om aftenen</p>
-      <p class="card-text"><small class="text-body-secondary">Donepezil</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Niels</h5>
-      <p class="card-text">Niels skal have Simvastatin én gang dagligt, ofte om aftenen</p>
-      <p class="card-text"><small class="text-body-secondary">Simvastatin</small></p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
 </div>
+</body>
+</html>
