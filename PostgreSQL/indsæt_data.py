@@ -5,7 +5,7 @@ try:
     connection = psycopg2.connect(
         user="postgres",
         password="jonas2011",
-        host="100.119.141.120", #den bliver ændret hvergang Yuhang tilgår den
+        host="10.139.136.150", #den bliver ændret hvergang Yuhang tilgår den
         port="5432",
         database="postgres")
 
