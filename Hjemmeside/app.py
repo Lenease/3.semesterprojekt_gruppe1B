@@ -11,7 +11,7 @@ def get_db_connection():
             dbname="postgres",
             user="postgres",
             password="jonas2011",
-            host="10.136.139.150",
+            host="10.136.140.130",
             port="5432"
         )
         return conn
@@ -110,7 +110,9 @@ def medicinplan():
                 cur.execute("""
                     INSERT INTO medicinplan (pyrusbeboer_id, medicin_id, dosis, tidspunkt)
                     VALUES (%s, %s, %s, %s)
-                """, (beboer, medicin, dosis, tidspunkt))
+                    ON CONFLICT (pyrusbeboer_id, medicin_id, tidspunkt)
+                    DO UPDATE SET dosis = EXCLUDED.dosis;
+                    """, (beboer, medicin, dosis, tidspunkt))
 
         conn.commit()
         cur.close()
@@ -128,3 +130,5 @@ def images(filename):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
