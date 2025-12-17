@@ -11,7 +11,7 @@ def get_db_connection():
             dbname="postgres",
             user="postgres",
             password="jonas2011",
-            host="10.136.140.130",
+            host="10.136.140.130", #hosten kan blive ændret, dobbelte tjekke host hvergang, man skal ind i serveren
             port="5432"
         )
         return conn
@@ -32,9 +32,13 @@ def index():
 def hjem():
     return render_template("hjem.html")
 
+@app.route("/images/<path:filename>")
+def images(filename): 
+    return send_from_directory("images", filename)
+
+#dynamisk side: henter og viser data fra PostgreSQL databasen 
 @app.route("/beboer")
 def beboer():
-
     conn = get_db_connection()
     if conn is None:
         return "FEJL: Kan ikke forbinde til databasen."
@@ -88,10 +92,9 @@ def beboer():
 
     return render_template("beboer.html", beboere=beboere)
 
-#dynamisk side, forbindelse til databasen i postgreSQL
+#dynamisk side: modtager brugerinput og opdaterer PostgreSQL databasen(GET/POST)
 @app.route("/medicinplan", methods=["GET", "POST"])
 def medicinplan():
-
     if request.method == "POST":
         beboer = request.form["beboer"]
 
@@ -123,12 +126,6 @@ def medicinplan():
     return render_template("medicinplan.html")
 
 
-@app.route("/images/<path:filename>")
-def images(filename): 
-    return send_from_directory("images", filename)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
